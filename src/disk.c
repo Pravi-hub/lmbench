@@ -289,9 +289,9 @@ int
 seekto(int fd, uint64 off)
 {
 #ifdef	__linux__
-	extern	loff_t llseek(int, loff_t, int);
+	extern	loff_t lseek64(int, loff_t, int);
 
-	if (llseek(fd, (loff_t)off, SEEK_SET) == (loff_t)-1) {
+	if (lseek64(fd, (loff_t)off, SEEK_SET) == (loff_t)-1) {
 		return(-1);
 	}
 	return (0);
